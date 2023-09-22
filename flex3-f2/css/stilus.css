@@ -1,0 +1,47 @@
+.container
+{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+}
+.zold
+{
+    background-color: green;
+    display: flex;
+    flex: auto;
+    width: 25%;
+    flex-direction: column;
+    justify-self: flex-start;
+}
+.sarga
+{
+    background-color: yellow;
+    flex: auto;
+    flex-direction: column;
+    margin: 8px;
+}
+.lila
+{
+    background-color: purple;
+    height:50px;
+    flex: auto;
+    margin-bottom: 8px;
+}
+.kek
+{
+    margin-left: 10px;
+    background-color: cyan;
+    width: 75px;
+    height: 30px;
+    align-self: center;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.szurke {
+    background-color: grey;
+    height:50px;
+    flex: auto;
+    margin-top: 8px;
+}
