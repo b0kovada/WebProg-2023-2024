@@ -1,0 +1,35 @@
+body
+{
+    margin: 0;
+}
+#container
+{
+    width: 800px;
+    height: 300px;
+    display: flex;
+    background-color: yellow;
+    justify-content: center;
+}
+#container>div
+{
+    width: 100px;
+    height: 100px;
+}
+.zold
+{
+    background-color: green;
+    flex: flex;
+    display: none;
+}
+.yellow
+{
+    background-color: yellow;
+    flex: flex;
+    display: none;
+}
+.lila
+{
+    background-color: purple;
+    flex: flex;
+    align-self: center;
+}

@@ -1,0 +1,31 @@
+body
+{
+    margin: 0;
+}
+ul
+{
+    margin: 0;
+}
+#container
+{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    background-color: yellow;
+    justify-content: flex-end;
+
+}
+#container>li
+{
+    width: 100px;
+    height: 100px;
+    flex:flex;
+}
+
+.lila
+{
+    background-color: purple;
+    margin: 10px;
+    align-self: flex-end;
+    list-style: none;
+}
