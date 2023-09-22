@@ -1,0 +1,38 @@
+.container
+{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+}
+.zold
+{
+    background-color: green;
+    flex: auto;
+    flex-direction: column;
+}
+.sarga
+{
+    background-color: yellow;
+    display: flex;
+    flex: auto;
+    width: 75%;
+    flex-direction: column;
+    justify-self: flex-end;
+}
+.lila
+{
+    background-color: purple;
+    height:40px;
+    flex: auto;
+}
+.kek
+{
+    margin-left: 10px;
+    background-color: cyan;
+    width: 75px;
+    height: 25px;
+    align-self: center;
+    justify-content: flex-start;
+    flex-direction: row;
+}
