@@ -1,0 +1,27 @@
+#container
+{
+    width: 100%;
+    height: 300px;
+    display: flex;
+}
+.zold
+{
+    background-color: green;
+    flex: auto;
+    flex-grow: 1;
+    order: 3;
+}
+.yellow
+{
+    background-color: yellow;
+    flex: auto;
+    flex-grow: 2;
+    order:2;
+}
+.lila
+{
+    background-color: purple;
+    flex: auto;
+    flex-grow: 1;
+    order: 1;
+}

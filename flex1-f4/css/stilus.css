@@ -1,0 +1,29 @@
+#container
+{
+    width: 600px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+.zold
+{
+    background-color: green;
+    flex: auto;
+    flex-grow: 1;
+    order: 1;
+}
+.yellow
+{
+    background-color: yellow;
+    flex: auto;
+    flex-grow: 2;
+    order: 3;
+
+}
+.lila
+{
+    background-color: purple;
+    flex: auto;
+    flex-grow: 1;
+    order: 2;
+}
