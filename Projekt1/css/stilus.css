@@ -40,7 +40,7 @@ h1 {
 }
 
 .card {
-    background-color: wheat;
+    background-color: red;
     padding: 10px;
     margin: 10px 0px;
     border-radius: 5px;
@@ -57,4 +57,10 @@ h1 {
     color: white;
     padding: 20px;
     border-radius: 10px;
+    background-image: url("https://preview.redd.it/a9vjztlbnys71.png?auto=webp&s=0edfd8b48ac284b2546f312491e2c3bad7359667");
+
+}
+
+.sotetModH1{
+    color:white;
 }
