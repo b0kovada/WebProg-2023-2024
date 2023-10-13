@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adatok Kezelése</title>
+  <style>
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="inputField" placeholder="Szöveg megadása">
+  <button id="saveButton">Mentés</button>
+  <div id="cardContainer"></div>
+
+  <script>
+    const adatok = [];
+
+    const inputField = document.getElementById("inputField");
+    const saveButton = document.getElementById("saveButton");
+    const cardContainer = document.getElementById("cardContainer");
+
+    saveButton.addEventListener("click", () => {
+      const inputValue = inputField.value;
+      if (inputValue.trim() !== "") {
+        adatok.push(inputValue);
+        inputField.value = "";
+        renderAdatok();
+      }
+    });
+
+    function renderAdatok() {
+      cardContainer.innerHTML = "";
+      adatok.forEach((adat, index) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `<p>Szöveg ${index + 1}:</p><p>${adat}</p>`;
+        cardContainer.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>
