@@ -1,0 +1,16 @@
+body{
+    background-color: pink;
+}
+
+#bevitel{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+#kartya {
+    flex-direction: column;
+    background-color: grey;
+  }
