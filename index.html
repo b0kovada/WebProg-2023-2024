@@ -1,20 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tömbkezelés</title>
+  <title>Tömb kezelése</title>
 </head>
 <body>
-    <button id="elsogomb">Első elem</button>
-    <button id="masodikgomb">Második elem</button>
-    <button id="harmadikgomb">Harmadik elem</button>
-    <button id="osszegelemgomb">Összeg elem</button>
-    <input type="text" id="szoveginput" placeholder="Szöveg hozzáadása">
-    <button id="hozzaadgomb">Hozzáad</button>
-    <button id="tombhosszagomb">Tömb hossza</button>
-    <input type="text" id="indexinput" placeholder="Index törléshez">
-    <button id="torlesgomb">Törlés</button>
-    <div id="tombkiiras"></div>
+  <button onclick="megjelenitElem(0)">Első elem</button>
+  <button onclick="megjelenitElem(1)">Második elem</button>
+  <button onclick="megjelenitElem(2)">Harmadik elem</button>
+  <button onclick="osszesElem()">Összeg elem</button>
+  <input type="text" id="newElement" placeholder="Új elem">
+  <button onclick="hozzaadElem()">Hozzáad elem</button>
+  <button onclick="tombHossza()">Tömb hossza</button>
+  <input type="number" id="deleteIndex" placeholder="Index">
+  <button onclick="torolElem()">Elem törlése</button>
 
-    <script src="script.js"></script>
+  <p id="output"></p>
+
+  <script>
+    var tomb = [];
+
+    function megjelenitElem(index) {
+      var elem = tomb[index];
+      document.getElementById('output').innerHTML = elem;
+    }
+
+    function osszesElem() {
+      document.getElementById('output').innerHTML = tomb.join(', ');
+    }
+
+    function hozzaadElem() {
+      var newElem = document.getElementById('newElement').value;
+      tomb.push(newElem);
+      document.getElementById('output').innerHTML = 'Az új elem hozzáadva: ' + newElem;
+    }
+
+    function tombHossza() {
+      var hossz = tomb.length;
+      document.getElementById('output').innerHTML = 'A tömb ' + hossz + ' elemet tartalmaz.';
+    }
+
+    function torolElem() {
+      var index = document.getElementById('deleteIndex').value;
+      if (index >= 0 && index < tomb.length) {
+        var deletedElem = tomb.splice(index, 1)[0];
+        document.getElementById('output').innerHTML = 'Törölt elem: ' + deletedElem;
+      } else {
+        document.getElementById('output').innerHTML = 'Hibás index.';
+      }
+    }
+  </script>
 </body>
 </html>
