@@ -18,21 +18,21 @@
   <script>
     const adatok = [];
 
-    const inputField = document.getElementById("inputField");
-    const saveButton = document.getElementById("saveButton");
-    const cardContainer = document.getElementById("cardContainer");
-
-    saveButton.addEventListener("click", () => {
+    function mentesFuggveny() {
+      const inputField = document.getElementById("inputField");
       const inputValue = inputField.value;
+      
       if (inputValue.trim() !== "") {
         adatok.push(inputValue);
         inputField.value = "";
         renderAdatok();
       }
-    });
+    }
 
     function renderAdatok() {
+      const cardContainer = document.getElementById("cardContainer");
       cardContainer.innerHTML = "";
+      
       adatok.forEach((adat, index) => {
         const card = document.createElement("div");
         card.className = "card";
@@ -40,6 +40,9 @@
         cardContainer.appendChild(card);
       });
     }
+
+    const saveButton = document.getElementById("saveButton");
+    saveButton.addEventListener("click", mentesFuggveny);
   </script>
 </body>
 </html>
