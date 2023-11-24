@@ -1,0 +1,7 @@
+.cell {
+    width: 150px;
+    height: 150px;
+    background-color: yellow;
+    margin: 10px;
+    display: inline-block;
+  }
