@@ -1,0 +1,28 @@
+.grid1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.grid3 > div {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+}
+
+.grid3 > div:first-child,
+.grid3 > div:last-child {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+}
