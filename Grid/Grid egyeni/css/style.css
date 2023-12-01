@@ -1,0 +1,40 @@
+:root {
+  --width: 40vw;
+  --height: 20vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: black;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  width: var(--width);
+  height: var(--height);
+  background-color: black;
+}
+
+.area1 {
+  grid-area: 1 / 2 / 5 / 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  width: calc(var(--width) / 3);
+  height: var(--height);
+}
+
+.one {
+  background-color: black;
+}
+
+.size {
+  width: calc(var(--width) / 3 - 2px);
+  height: calc(var(--height) / 4 - 2px);
+  margin: 1px;
+}
