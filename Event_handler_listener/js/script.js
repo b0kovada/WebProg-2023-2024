@@ -1,7 +1,7 @@
 function logSzoveg() {
-    const button = document.querySelector(".btn");
-button.addEventListener("click",()=>{
-let szoveg=document.getElementById("szoveg").value;
-console.log(szoveg);
+    const gomb = document.querySelector(".btn");
+    gomb.addEventListener("click",()=>{
+    let szoveg=document.getElementById("szovegBe").value;
+    console.log("A felhasználó által beírt szöveg :" + szoveg);
 })
 }
