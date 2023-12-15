@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     const szimbolumok = ['Α','Β','Γ','Δ','Ε','Ζ','Η','Θ','Ι','Κ','Λ','Μ','Ν','Ξ','Ο','Π','Ρ','Σ','Τ','Υ','Φ','Χ','Ψ','Ω'];
-    let kevertSzimbolumok = keveres(szimbolumok);
+    const duplazottSzimbolumok = szimbolumok.concat(szimbolumok);
+    let kevertSzimbolumok = keveres(duplazottSzimbolumok);
     let felforditott = [];
     let egyezo = [];
-
+    
     const jatekContainer = document.getElementById('jatek_container');
 
     function ujKartya(szimbolum) {
