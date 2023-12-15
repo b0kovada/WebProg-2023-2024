@@ -41,25 +41,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function egyezesVizsgalat() {
-        const [kartya1, kartya2] = felforditott;
-        const szimbolum1 = kartya1.querySelector('.hatulja').textContent;
-        const szimbolum2 = kartya2.querySelector('.hatulja').textContent;
+    const [kartya1, kartya2] = felforditott;
+    const szimbolum1 = kartya1.querySelector('.hatulja').textContent;
+    const szimbolum2 = kartya2.querySelector('.hatulja').textContent;
 
-        if (szimbolum1 === szimbolum2) {
-            egyezo.push(kartya1, kartya2);
-            felforditott = [];
+    if (szimbolum1 === szimbolum2) {
+        egyezo.push(kartya1, kartya2);
+        felforditott = [];
 
-            if (egyezo.length === szimbolumok.length) {
-                setTimeout(() => alert('Gratulálok!'), 200);
-            }
-        } else {
-            setTimeout(() => {
-                kartya1.classList.remove('forditott');
-                kartya2.classList.remove('forditott');
-                felforditott = [];
-            }, 500);
+        if (egyezo.length === kevertSzimbolumok.length) {
+            setTimeout(() => alert('Gratulálok!'), 200);
         }
+    } else {
+        setTimeout(() => {
+            kartya1.classList.remove('forditott');
+            kartya2.classList.remove('forditott');
+            felforditott = [];
+        }, 500);
     }
+}
 
     function keveres(array) {
         const kevert = array.slice();
