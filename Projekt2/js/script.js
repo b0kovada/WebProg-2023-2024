@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const szimbolumok = ['Α','Β','Γ','Δ','Ε','Ζ','Η','Θ','Ι','Κ','Λ','Μ','Ν','Ξ','Ο','Π','Ρ','Σ','Τ','Υ','Φ','Χ','Ψ','Ω'];
+    const szimbolumok = ['Γ','Δ','Ξ','Π','Σ','Φ','Ψ','Ω'];
     const duplazottSzimbolumok = szimbolumok.concat(szimbolumok);
     let kevertSzimbolumok = keveres(duplazottSzimbolumok);
     let felforditott = [];
