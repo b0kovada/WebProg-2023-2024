@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sum of Cubed Odd Numbers</title>
+</head>
+<body>
 
+<script>
+  function sumOfCubedOddNumbers(arr) {
+    // Check if all elements in the array are numbers
+    if (arr.some(item => typeof item !== 'number')) {
+      return undefined; // or return null, as per your preference
+    }
+
+    // Filter odd numbers and calculate their sum after cubing
+    const sum = arr.filter(num => num % 2 !== 0).reduce((acc, num) => acc + Math.pow(num, 3), 0);
+
+    return sum;
+  }
+
+  // Example usage
+  const inputArray = [1, 2, 3, 4, 5];
+  const result = sumOfCubedOddNumbers(inputArray);
+
+  console.log(result); // Output should be the sum of cubed odd numbers in the array
+</script>
+
+</body>
+</html>
