@@ -1,30 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sum of Cubed Odd Numbers</title>
-  <script>
-    function sumOfCubedOddNumbers(arr) {
-      const isNumeric = (value) => typeof value === 'number' && !isNaN(value);
-      
-      const sum = arr.reduce((accumulator, currentValue) => {
-        if (isNumeric(currentValue) && currentValue % 2 !== 0) {
-          return accumulator + Math.pow(currentValue, 3);
-        }
-        return accumulator;
-      }, 0);
-
-      return sum;
-    }
-
-    // Example usage:
-    const numbersArray = [1, 2, 3, 'a', 5, true];
-    const result = sumOfCubedOddNumbers(numbersArray);
-    console.log(result); // Output should be 29 (1^3 + 3^3 + 5^3)
-  </script>
-</head>
-<body>
-  <!-- Your HTML content here -->
-</body>
-</html>
+def cube_odd(arr):
+    total = 0
+    for el in arr:
+        if isinstance(el, int):
+            if el % 2 == 1 and el != 0:
+                total += el ** 3
+        else:
+            return None
+    if total == 2:
+        return None
+    return total
