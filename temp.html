@@ -1,1 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimum Value/Index Finder</title>
+</head>
+<body>
 
+  <script>
+    function min(arr, returnType) {
+      if (returnType === 'value') {
+        return Math.min(...arr);
+      } else if (returnType === 'index') {
+        return arr.indexOf(Math.min(...arr));
+      }
+    }
+
+    // Example usage:
+    const minValue = min([1, 2, 3, 4, 5], 'value');
+    const minIndex = min([1, 2, 3, 4, 5], 'index');
+
+    console.log('Minimum Value:', minValue);  // Output: 1
+    console.log('Index of Minimum Value:', minIndex);  // Output: 0
+  </script>
+
+</body>
+</html>
