@@ -1,35 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cube Odd Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destructuring Assignment</title>
 </head>
 <body>
 
-    <script>
-        function cube_odd(arr) {
-            var total = 0;
-            for (var i = 0; i < arr.length; i++) {
-                var el = arr[i];
-                if (typeof el === 'number') {
-                    if (el % 2 === 1 && el !== 0) {
-                        total += Math.pow(el, 3);
-                    }
-                } else {
-                    return null;
-                }
-            }
-            if (total === 2) {
-                return null;
-            }
-            return total;
-        }
+<script>
+  // Adott autó tömb
+  let car = ['Ford', 'Mustang', 2022, 'blue'];
 
-        // Example usage:
-        var result = cube_odd([1, 2, 3, 4, 5]);
-        console.log(result); // Output: 28
-    </script>
+  // Destructuring assignment segítségével mentjük a változókba
+  let [brand, model, year, color] = car;
+
+  // Kiírás a konzolra
+  console.log('Brand:', brand);
+  console.log('Model:', model);
+  console.log('Year:', year);
+  console.log('Color:', color);
+</script>
 
 </body>
 </html>
