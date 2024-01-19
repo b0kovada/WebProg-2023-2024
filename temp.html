@@ -1,13 +1,1 @@
-Igen, a változók sorrendje a destruktúrálás során fontos, mivel a tömb elemei a sorrendjük alapján kerülnek hozzárendelésre a változókhoz. Például:
 
-```javascript
-let car = ['Ford', 'Mustang', 2022, 'blue'];
-
-// Helytelen sorrendű destruktúrálás
-let [model, brand, color, year] = car;
-
-// Megfelelő sorrendű destruktúrálás
-let [brand, model, year, color] = car;
-```
-
-Az első példa helytelen, mert a változók sorrendje nem egyezik meg a tömb elemeinek sorrendjével. A második példa a megfelelő sorrendben destruktúrálja a tömböt, így helyesen rendeli hozzá a változókat az elemekhez. A sorrend megtartása kulcsfontosságú a helyes értékadás érdekében.
