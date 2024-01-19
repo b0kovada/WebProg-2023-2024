@@ -23,3 +23,19 @@
 
 </body>
 </html>
+Tömb destruktúrálás során a változóneveket tetszőlegesen választhatod, de a szintaxisnak meg kell egyeznie a tömb elemeinek sorrendjével. Az alábbi példa mutatja a destruktúrálás alkalmazását és a változónevek kiválasztását:
+
+```javascript
+let car = ['Ford', 'Mustang', 2022, 'blue'];
+
+// Változónevek kiválasztása más névvel
+let [autoMarka, autoModell, ev, autoSzin] = car;
+
+// Kiírás a konzolra
+console.log('Autó márka:', autoMarka);
+console.log('Autó modell:', autoModell);
+console.log('Gyártási év:', ev);
+console.log('Autó színe:', autoSzin);
+```
+
+Itt a változók nevei (pl. `autoMarka`, `autoModell`, stb.) a te választásodtól függnek, de jó gyakorlat az érthetőség és az alkalmazási kontextus figyelembevétele.
