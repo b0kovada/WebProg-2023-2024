@@ -1,1 +1,48 @@
+A változóneveknek az objektum destruktúrálásakor nem feltétlenül kell megegyezniük az eredeti objektum kulcsaival. A destruktúrálás során a következőképpen lehet változóneveket használni:
 
+```javascript
+let book = {
+  title: 'JavaScript: The Good Parts',
+  author: 'Douglas Crockford',
+  publicationYear: 2008,
+  language: 'English'
+};
+
+// Destruktúrálás más névvel
+const { title: bookTitle, author: writer, publicationYear: year, language: lang } = book;
+
+// Így használhatók a változók
+console.log('Book Title:', bookTitle);
+console.log('Writer:', writer);
+console.log('Publication Year:', year);
+console.log('Language:', lang);
+```
+
+A fenti példa azt mutatja be, hogy más névvel is rendelkezhetsz a destruktúrálás során létrehozott változóknak. Az új neveket a kettőspont (`:`) segítségével állíthatod be.
+
+
+
+
+Az objektum destruktúrálás során a változók sorrendje nem fontos. A destruktúrálás a megadott kulcsokhoz rendeli a megfelelő változókat, függetlenül attól, hogy azoknak mi a sorrendje az eredeti objektumban.
+
+Például:
+
+```javascript
+let book = {
+  title: 'JavaScript: The Good Parts',
+  author: 'Douglas Crockford',
+  publicationYear: 2008,
+  language: 'English'
+};
+
+// Változók sorrendje nem számít
+const { author, language, title, publicationYear } = book;
+
+// A változók így is helyesen lesznek deklarálva
+console.log('Author:', author);
+console.log('Language:', language);
+console.log('Title:', title);
+console.log('Publication Year:', publicationYear);
+```
+
+A változók sorrendjének megfelelően a destruktúrálás helyesen működik, és az értékeket a megfelelő változókba rendeli.
