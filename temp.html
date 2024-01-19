@@ -1,1 +1,13 @@
+function printStudentInfo(student) {
+  const { name, age, grade, subjects } = student;
+  console.log(`Name: ${name}, Age: ${age}, Grade: ${grade}, Subjects: ${subjects.join(', ')}`);
+}
 
+let student = {
+  name: 'John Doe',
+  age: 20,
+  grade: 'B',
+  subjects: ['Math', 'English', 'History']
+};
+
+printStudentInfo(student);
