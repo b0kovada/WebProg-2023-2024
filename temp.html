@@ -1,1 +1,8 @@
+function getNumberFromString(s) {
+  // Removes letters from the string
+  // Keeps numbers but changes them from a string to a number
+  let getLettersOut = s.replace(/[^0-9]/g, '');
+  return parseInt(getLettersOut);
+}
 
+// Note: The console.log(s) line was removed as it would never be reached.
