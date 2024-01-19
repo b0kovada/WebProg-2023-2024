@@ -1,19 +1,1 @@
-const possiblyPerfect = (key, answers) => {
-  let correctAnswersCount = 0;
-  let totalNonPlaceholderAnswers = 0;
 
-  for (let i = 0; i < key.length; i++) {
-    const expectedAnswer = key[i];
-    const actualAnswer = answers[i];
-
-    if (expectedAnswer !== '_') {
-      totalNonPlaceholderAnswers++;
-
-      if (expectedAnswer === actualAnswer) {
-        correctAnswersCount++;
-      }
-    }
-  }
-
-  return correctAnswersCount === totalNonPlaceholderAnswers || correctAnswersCount === 0;
-};
