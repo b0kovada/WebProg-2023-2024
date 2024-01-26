@@ -1,1 +1,6 @@
-
+function swapHeadAndTail(arr) {
+  let len = Math.floor(arr.length/2),
+  head = arr.splice(0,len),
+  tail = arr.splice(-len);
+  return newarr = tail.concat(arr, head)
+}
