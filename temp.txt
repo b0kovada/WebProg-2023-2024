@@ -1,6 +1,25 @@
-function swapHeadAndTail(arr) {
-  let len = Math.floor(arr.length/2),
-  head = arr.splice(0,len),
-  tail = arr.splice(-len);
-  return newarr = tail.concat(arr, head)
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swap Head and Tail</title>
+</head>
+<body>
+
+<script>
+  function swapHeadAndTail(arr) {
+    let len = Math.floor(arr.length / 2),
+        head = arr.splice(0, len),
+        tail = arr.splice(-len);
+    return newarr = tail.concat(arr, head);
+  }
+
+  // Példa használat:
+  let inputArray = [1, 2, 3, 4, 5];
+  let swappedArray = swapHeadAndTail(inputArray);
+  console.log(swappedArray);
+</script>
+
+</body>
+</html>
