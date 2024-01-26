@@ -1,19 +1,19 @@
-function paratlan(arr) {
-    var osszes = 0;
-    for (var i = 0; i < arr.length; i++) {
-        var temp = arr[i];
-        if (typeof temp === "number") {
-            if (temp % 2 === 1 && temp !== 0) {
-                osszes += Math.pow(temp, 3);
-            }
-        } else {
-            return null;
-        }
+function cubeOdd(arr) {
+  let res = [];
+  let result = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (isNaN(arr[i])) {
+      return undefined;
+    } else {
+      res.push(Math.pow(arr[i], 3));
+      if (res[i] % 2 !== 0) {
+        result += res[i];
+      }
     }
-    if (osszes === 2) {
-        return null;
-    }
-    return osszes;
+  }
+
+  return result;
 }
-var eredmeny = paratlan([1, 2, 3, 4, 5]);
-console.log(eredmeny);
+var result = cubeOdd([1, 2, 3, 4, 5]);
+console.log(result);
