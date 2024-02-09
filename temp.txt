@@ -1,9 +1,15 @@
-const generateSequence = (n, L0, L1, add) => {
-  const sequence = [L0, L1];
+function squareUp(n) {
+  let resultArray = [];
 
-  for (let i = 0; i < n - 2; i++) {
-    sequence.push(sequence[i] + sequence[i + 1] + add);
+  for (let x = 1; x <= n; x++) {
+    for (let i = n; i > 0; i--) {
+      if (i <= x) {
+        resultArray.push(i);
+      } else {
+        resultArray.push(0);
+      }
+    }
   }
 
-  return sequence;
-};
+  return resultArray;
+}
