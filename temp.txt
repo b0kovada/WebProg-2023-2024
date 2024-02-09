@@ -1,7 +1,1 @@
-function sortStringsCaseInsensitive(arr) {
-  return arr.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-}
 
-// Test cases
-console.log(sortStringsCaseInsensitive(["Hello", "there", "I'm", "fine"]));
-console.log(sortStringsCaseInsensitive(["C", "d", "a", "B"]));
