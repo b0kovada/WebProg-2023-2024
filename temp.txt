@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+</head>
+<body>
+    <h1>User Data</h1>
+    <form id="userDataForm">
+        <label for="userId">Choose a user ID (1-30):</label>
+        <input type="number" id="userId" name="userId" min="1" max="30" required>
+        <button type="submit">Get User Data</button>
+    </form>
+    <div id="userData"></div>
+
+    <script>
+        document.getElementById('userDataForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const userId = document.getElementById('userId').value;
+            fetch(`https://jsonplaceholder.org/users/${userId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(user => {
+                    const userData = `
+                        <h2>User Details:</h2>
+                        <p>ID: ${user.id}</p>
+                        <p>Name: ${user.name}</p>
+                        <p>Username: ${user.username}</p>
+                        <p>Email: ${user.email}</p>
+                        <p>Address: ${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}</p>
+                        <p>Geo: ${user.address.geo.lat}, ${user.address.geo.lng}</p>
+                        <p>Phone: ${user.phone}</p>
+                        <p>Website: ${user.website}</p>
+                        <p>Company: ${user.company.name}, ${user.company.catchPhrase}, ${user.company.bs}</p>
+                    `;
+                    document.getElementById('userData').innerHTML = userData;
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                    document.getElementById('userData').innerHTML = `<p>Error: ${error.message}</p>`;
+                });
+        });
+    </script>
+</body>
+</html>
