@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irányítószámok</title>
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <h1>
+        Írányítószámok
+    </h1>
+    <form id="adatok">
+        <label for="id">Kívánt település neve:</label>
+        <input type="text" id="telepulesNev" >
+        <button type="submit" onclick="fgv()">Lekérés</button>
+    </form>
+    <div id="lekertAdatok"></div>
+    <script>
+        function fgv(){
+    document.getElementById("adatok").addEventListener("submit", function(event) {
+        const telepulesNeve = document.getElementById("telepulesNev").value;
+        fetch(`https://hur.webmania.cc/zips/${telepulesNeve}.json`)
+            .then(response => {
+                return response.json();
+            })
+            .then(zips => {
+                const telepulesAdat = `
+                    <h2>Teleplülés adatai:</h2>
+                    <p>Név: ${zips.name}</p>
+                    <p>Irányítószám ${zips.zip}</p>
+                `;
+                document.getElementById("lekertAdatok").innerHTML = telepulesAdat;
+            })
+            .catch(error => {
+                console.error('Nincs a keresésnek megfelelő találat.', error);
+            });
+    });
+}
+    </script>
+</body>
+</html>
