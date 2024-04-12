@@ -1,35 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Management System</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Course Management System</h1>
-    <div id="courseList"></div>
-    <div id="studentList"></div>
+Természetesen! Itt van egy portfólió szöveg egy BMW E36 rajongói weboldalhoz:
 
-    <script src="script.js"></script>
-</body>
-</html>
+---
 
-document.addEventListener('DOMContentLoaded', function() {
-    fetchCourses();
-});
+**Üdvözlünk a BMW E36 Fan Klub Hivatalos Weboldalán!**
 
-function fetchCourses() {
-    fetch('https://vvri.pythonanywhere.com/api/courses')
-        .then(response => response.json())
-        .then(data => {
-            const courseList = document.getElementById('courseList');
-            courseList.innerHTML = '<h2>Available Courses</h2>';
-            data.forEach(course => {
-                const div = document.createElement('div');
-                div.textContent = course.name; // Assuming 'name' is part of the course object
-                courseList.appendChild(div);
-            });
-        })
-        .catch(error => console.error('Error fetching courses:', error));
-}
+Ha szenvedélyesen szereted az autókat, különösen a BMW E36 modelleket, akkor a helyes helyen jársz. Oldalunkat az E36-os BMW modellek szerelmeseinek hoztuk létre, és itt mindent megtalálsz, ami csak szükséges lehet a kultikus járgányokhoz kapcsolódóan.
+
+**Portfóliónk**
+
+1. **Galéria:** Fedezd fel kiterjedt fotógalériánkat, amely az E36-osok minden változatát bemutatja. Klasszikusok a '90-es évekből, megőrzött állapotban vagy éppen teljesen átalakítva.
+
+2. **Események:** Tarts velünk klubrendezvényeinkre, amelyek tartalmazzák a találkozókat, kiállításokat és versenyeket. Ne hagyd ki a következő E36-os találkozót!
+
+3. **Blog:** Olvasd el szakértőink írásait, amelyek tippeket, trükköket és érdekességeket tartalmaznak az E36-osok világából. Legyen szó karbantartásról, tuningról vagy a modell történetéről, itt mindent megtalálsz.
+
+4. **Fórum:** Csatlakozz közösségünkhöz, és légy része aktív fórumunknak, ahol tagjaink megosztják tapasztalataikat, tanácsokat kérnek és adnak, és beszélgetnek mindenről, ami E36.
+
+5. **Webáruház:** Böngéssz webshopunkban, ahol exkluzív E36-os merchandise termékeket, alkatrészeket és kiegészítőket találhatsz, hogy még egyedibbé tehesd saját járművedet.
+
+**Csatlakozz hozzánk**
+
+Legyen része a közösségünknek, és oszd meg velünk E36-os BMW-d iránti szenvedélyed! Regisztrálj még ma, hogy hozzáférhess exkluzív tartalmakhoz, kedvezményekhez és eseményekhez. Várunk szeretettel minden új és régi rajongót egyaránt.
+
+---
+
+Remélem, ez a szöveg megfelelő lesz a weboldalhoz. Ha szükséges, további módosításokat is tudok eszközölni.
