@@ -1,89 +1,33 @@
-document.getElementById('new-course-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const courseName = document.getElementById('course-name').value;
-    createCourse(courseName);
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses and Students Management</title>
+</head>
+<body>
+    <h1>Courses Management</h1>
+    <section id="courses-list"></section>
+    <h2>Add New Course</h2>
+    <form id="new-course-form">
+        <input type="text" id="course-name" placeholder="Course Name" required>
+        <input type="submit" value="Create Course">
+    </form>
+    <h1>Students Management</h1>
+    <section id="students-list"></section>
+    <h2>Edit Student</h2>
+    <form id="edit-student-form">
+        <input type="text" id="student-name" placeholder="Student Name" required>
+        <input type="submit" value="Update Student">
+    </form>
+    <script src="app.js"></script>
+</body>
+</html>
 
-function fetchCourses() {
-    fetch('https://vvri.pythonanywhere.com/api/courses')
-        .then(response => response.json())
-        .then(data => {
-            const coursesList = document.getElementById('courses-list');
-            coursesList.innerHTML = '';
-            data.forEach(course => {
-                coursesList.innerHTML += `<div>${course.name}</div>`;
-            });
-        })
-        .catch(error => console.error('Error fetching courses:', error));
+
+body {
+    font-family: Arial, sans-serif;
 }
-
-function createCourse(name) {
-    fetch('https://vvri.pythonanywhere.com/api/courses', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name: name })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Course created:', data);
-        fetchCourses(); // Refresh the courses list
-    })
-    .catch(error => console.error('Error creating course:', error));
+input, button {
+    margin: 10px;
 }
-
-// Call fetchCourses initially to load the courses
-fetchCourses();
-// Fetching and displaying all students
-function fetchStudents() {
-    fetch('https://vvri.pythonanywhere.com/api/students') // Modify with the correct API endpoint for students
-        .then(response => response.json())
-        .then(data => {
-            const studentsList = document.getElementById('students-list');
-            studentsList.innerHTML = '';
-            data.forEach(student => {
-                studentsList.innerHTML += `<div>${student.name} <button onclick="editStudentForm(${student.id})">Edit</button> <button onclick="deleteStudent(${student.id})">Delete</button></div>`;
-            });
-        })
-        .catch(error => console.error('Error fetching students:', error));
-}
-
-// Handling the submission of the student edit form
-document.getElementById('edit-student-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const studentName = document.getElementById('student-name').value;
-    updateStudent(studentName); // This function needs an ID to update the correct student
-});
-
-// Updating student data
-function updateStudent(id, name) {
-    fetch(`https://vvri.pythonanywhere.com/api/students/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name: name })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Student updated:', data);
-        fetchStudents(); // Refresh the students list
-    })
-    .catch(error => console.error('Error updating student:', error));
-}
-
-// Deleting a student
-function deleteStudent(id) {
-    fetch(`https://vvri.pythonanywhere.com/api/students/${id}`, {
-        method: 'DELETE'
-    })
-    .then(response => {
-        console.log('Student deleted:', response);
-        fetchStudents(); // Refresh the students list after deletion
-    })
-    .catch(error => console.error('Error deleting student:', error));
-}
-
-// Initialize fetchStudents to load the students on page load
-fetchStudents();
