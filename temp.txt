@@ -1,11 +1,10 @@
-// Function to trigger the edit form prefill
+// Ensure the editStudentForm function captures the student ID correctly and pre-fills the form.
 function editStudentForm(id) {
     fetch(`https://vvri.pythonanywhere.com/api/students/${id}`)
         .then(response => response.json())
         .then(data => {
             const studentNameInput = document.getElementById('student-name');
             studentNameInput.value = data.name;
-            // Update the form submission to pass the ID
             const form = document.getElementById('edit-student-form');
             form.onsubmit = function(event) {
                 event.preventDefault();
