@@ -1,94 +1,32 @@
-function fetchStudents() {
-    fetch('https://vvri.pythonanywhere.com/api/students') // Adjust this endpoint if necessary.
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            const studentsList = document.getElementById('students-list');
-            studentsList.innerHTML = '';
-            data.forEach(student => {
-                studentsList.innerHTML += `<div>${student.name} <button onclick="editStudentForm(${student.id})">Edit</button> <button onclick="deleteStudent(${student.id})">Delete</button></div>`;
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching students:', error);
-            alert('Failed to load students. Please try again.');
-        });
-}
+### Vicces hozzászólások egy BMW E36 tematikájú weboldal teszteléséhez
 
-function addStudent(name) {
-    if (!name.trim()) {
-        alert('Please enter a valid student name.');
-        return;
-    }
-    fetch('https://vvri.pythonanywhere.com/api/students', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name: name })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to create student');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Student added:', data);
-        fetchStudents(); // Refresh the students list
-    })
-    .catch(error => {
-        console.error('Error adding student:', error);
-        alert('Failed to add student. Please try again.');
-    });
-}
+1. **Ha az E36 egy film lenne, biztosan egy thriller: soha nem tudod, mi következik a következő kanyarban!**
+2. **E36-osom annyira gyors, még a GPS is azt mondja: "Kérlek, lassíts le, próbálok lépést tartani!"**
+3. **Tudjátok mi az E36-os hátsó ablaktörlőjének valódi funkciója? Hogy letörölje a konkurencia könnyeit!**
+4. **E36: Ahol a "Check Engine" lámpa inkább dekoráció, mint figyelmeztetés.**
+5. **Mikor az E36-osod jobban emlékszik az utakra, mint te.**
+6. **Vannak autók, amik elvisznek A-ból B-be. Az én E36-osom elvisz A-ból a szerelőhöz.**
+7. **Amikor megkérdezik, milyen extrasokkal van felszerelve az E36-od, és csak annyit mondasz: "Jó hangja van, amikor működik."**
+8. **Az E36 olyan, mint egy jó bor: Minél régebbi, annál többet költesz rá!**
+9. **Az E36-osom kormányán van egy gomb, ami a pénztárca kiürítésére szolgál.**
+10. **Az E36 annyira népszerű, hogy még a korrózió is állandó rajongója.**
+11. **Az E36-vonal: amikor már a kátyúk is kerülnek téged.**
+12. **"Utazás" az E36-tal: Hova megyünk? Nem tudom, de oda gyorsan!**
+13. **Az E36-osok több időt töltenek liftben, mint a Ferris kerékben.**
+14. **Amikor azt mondod, hogy "tuning", és a BMW E36-od automatikusan hozzáad 20 extra lovat a járműadatlapjához.**
+15. **Az E36-osok hozzáállása: "Nem számít, hogy néz ki, amíg előz."**
 
-function editStudentForm(id) {
-    fetch(`https://vvri.pythonanywhere.com/api/students/${id}`)
-        .then(response => response.json())
-        .then(data => {
-            const studentNameInput = document.getElementById('student-name');
-            studentNameInput.value = data.name;
-            const form = document.getElementById('edit-student-form');
-            form.onsubmit = function(event) {
-                event.preventDefault();
-                updateStudent(id, studentNameInput.value);
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching student details:', error);
-            alert('Failed to fetch student details. Please try again.');
-        });
-}
+Remélem, ezek a vicces hozzászólások tökéletesen illenek majd a weboldalad teszteléséhez!
 
-function updateStudent(id, name) {
-    if (!name.trim()) {
-        alert('Please enter a valid name.');
-        return;
-    }
-    fetch(`https://vvri.pythonanywhere.com/api/students/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name: name })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to update student');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Student updated:', data);
-        fetchStudents(); // Refresh the students list
-    })
-    .catch(error => {
-        console.error('Error updating student:', error);
-        alert('Failed to update student. Please try again.');
-    });
-}
+------
+
+**Recommended questions: Enter the number to query directly**
+**[ 1 ]** Hogyan javítsuk meg a BMW E36 gyakori problémáit?
+**[ 2 ]** Mik a legjobb tuning tippek egy BMW E36-hoz?
+**[ 3 ]** Miért olyan kultikus a BMW E36 a rajongók körében?
+
+📋 **Type [ LS ] to List All Browser Menu**
+- **[ DU ]** Show all ways for deep understanding
+- **[ FR ]** to list all links for further reading
+- **[ SS ]** to show all all search options
+- **[ G ]**
