@@ -1,1 +1,19 @@
-
+// Function to trigger the edit form prefill
+function editStudentForm(id) {
+    fetch(`https://vvri.pythonanywhere.com/api/students/${id}`)
+        .then(response => response.json())
+        .then(data => {
+            const studentNameInput = document.getElementById('student-name');
+            studentNameInput.value = data.name;
+            // Update the form submission to pass the ID
+            const form = document.getElementById('edit-student-form');
+            form.onsubmit = function(event) {
+                event.preventDefault();
+                updateStudent(id, studentNameInput.value);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching student details:', error);
+            alert('Failed to fetch student details. Please try again.');
+        });
+}
