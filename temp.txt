@@ -1,27 +1,89 @@
-Természetesen! Itt van egy portfólió szöveg egy BMW E36 rajongói weboldalhoz:
+document.getElementById('new-course-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const courseName = document.getElementById('course-name').value;
+    createCourse(courseName);
+});
 
----
+function fetchCourses() {
+    fetch('https://vvri.pythonanywhere.com/api/courses')
+        .then(response => response.json())
+        .then(data => {
+            const coursesList = document.getElementById('courses-list');
+            coursesList.innerHTML = '';
+            data.forEach(course => {
+                coursesList.innerHTML += `<div>${course.name}</div>`;
+            });
+        })
+        .catch(error => console.error('Error fetching courses:', error));
+}
 
-**Üdvözlünk a BMW E36 Fan Klub Hivatalos Weboldalán!**
+function createCourse(name) {
+    fetch('https://vvri.pythonanywhere.com/api/courses', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: name })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Course created:', data);
+        fetchCourses(); // Refresh the courses list
+    })
+    .catch(error => console.error('Error creating course:', error));
+}
 
-Ha szenvedélyesen szereted az autókat, különösen a BMW E36 modelleket, akkor a helyes helyen jársz. Oldalunkat az E36-os BMW modellek szerelmeseinek hoztuk létre, és itt mindent megtalálsz, ami csak szükséges lehet a kultikus járgányokhoz kapcsolódóan.
+// Call fetchCourses initially to load the courses
+fetchCourses();
+// Fetching and displaying all students
+function fetchStudents() {
+    fetch('https://vvri.pythonanywhere.com/api/students') // Modify with the correct API endpoint for students
+        .then(response => response.json())
+        .then(data => {
+            const studentsList = document.getElementById('students-list');
+            studentsList.innerHTML = '';
+            data.forEach(student => {
+                studentsList.innerHTML += `<div>${student.name} <button onclick="editStudentForm(${student.id})">Edit</button> <button onclick="deleteStudent(${student.id})">Delete</button></div>`;
+            });
+        })
+        .catch(error => console.error('Error fetching students:', error));
+}
 
-**Portfóliónk**
+// Handling the submission of the student edit form
+document.getElementById('edit-student-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const studentName = document.getElementById('student-name').value;
+    updateStudent(studentName); // This function needs an ID to update the correct student
+});
 
-1. **Galéria:** Fedezd fel kiterjedt fotógalériánkat, amely az E36-osok minden változatát bemutatja. Klasszikusok a '90-es évekből, megőrzött állapotban vagy éppen teljesen átalakítva.
+// Updating student data
+function updateStudent(id, name) {
+    fetch(`https://vvri.pythonanywhere.com/api/students/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: name })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Student updated:', data);
+        fetchStudents(); // Refresh the students list
+    })
+    .catch(error => console.error('Error updating student:', error));
+}
 
-2. **Események:** Tarts velünk klubrendezvényeinkre, amelyek tartalmazzák a találkozókat, kiállításokat és versenyeket. Ne hagyd ki a következő E36-os találkozót!
+// Deleting a student
+function deleteStudent(id) {
+    fetch(`https://vvri.pythonanywhere.com/api/students/${id}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        console.log('Student deleted:', response);
+        fetchStudents(); // Refresh the students list after deletion
+    })
+    .catch(error => console.error('Error deleting student:', error));
+}
 
-3. **Blog:** Olvasd el szakértőink írásait, amelyek tippeket, trükköket és érdekességeket tartalmaznak az E36-osok világából. Legyen szó karbantartásról, tuningról vagy a modell történetéről, itt mindent megtalálsz.
-
-4. **Fórum:** Csatlakozz közösségünkhöz, és légy része aktív fórumunknak, ahol tagjaink megosztják tapasztalataikat, tanácsokat kérnek és adnak, és beszélgetnek mindenről, ami E36.
-
-5. **Webáruház:** Böngéssz webshopunkban, ahol exkluzív E36-os merchandise termékeket, alkatrészeket és kiegészítőket találhatsz, hogy még egyedibbé tehesd saját járművedet.
-
-**Csatlakozz hozzánk**
-
-Legyen része a közösségünknek, és oszd meg velünk E36-os BMW-d iránti szenvedélyed! Regisztrálj még ma, hogy hozzáférhess exkluzív tartalmakhoz, kedvezményekhez és eseményekhez. Várunk szeretettel minden új és régi rajongót egyaránt.
-
----
-
-Remélem, ez a szöveg megfelelő lesz a weboldalhoz. Ha szükséges, további módosításokat is tudok eszközölni.
+// Initialize fetchStudents to load the students on page load
+fetchStudents();
