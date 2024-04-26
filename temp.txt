@@ -120,3 +120,22 @@ function deleteStudent(id) {
         alert('Failed to delete student. Please try again.');
     });
 }
+
+
+
+
+
+<!-- Form for adding a new student -->
+<h2>Add New Student</h2>
+<form id="add-student-form">
+    <input type="text" id="new-student-name" placeholder="Student Name" required>
+    <input type="submit" value="Add Student">
+</form>
+
+<!-- Form for editing an existing student -->
+<h2>Edit Student</h2>
+<form id="edit-student-form">
+    <input type="hidden" id="student-id">
+    <input type="text" id="student-name" placeholder="Student Name" required>
+    <input type="submit" value="Update Student">
+</form>
