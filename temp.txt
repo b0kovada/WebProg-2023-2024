@@ -1,1 +1,43 @@
 
+// Új diák hozzáadása
+document.getElementById('newStudentForm').addEventListener('submit', event => {
+    event.preventDefault();
+    const studentName = document.getElementById('studentName').value;
+    const studentEmail = prompt('Adja meg a diák e-mail címét:'); // E-mail cím kérése a felhasználótól
+
+    fetch('https://vvri.pythonanywhere.com/api/students', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: studentName, email: studentEmail }) // Feltételezve, hogy az API e-mail címet is kér
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Diák hozzáadva:', data);
+        document.getElementById('studentName').value = ''; // Mező törlése
+        document.getElementById('loadStudents').click(); // Lista frissítése
+    })
+    .catch(error => console.error('Hiba történt: ', error));
+});
+
+// Diák szerkesztése (PATCH használatával)
+function editStudent(studentId) {
+    const studentName = prompt('Új diák neve:');
+    const studentEmail = prompt('Új diák email címe:');
+
+    fetch(`https://vvri.pythonanywhere.com/api/students/${studentId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: studentName, email: studentEmail }) // Feltételezve, hogy a PATCH metódus támogatott
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Diák adatai frissítve.');
+            document.getElementById('loadStudents').click(); // Lista frissítése
+        }
+    })
+    .catch(error => console.error('Hiba történt: ', error));
+}
