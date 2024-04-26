@@ -1,1 +1,78 @@
+// Diákok betöltése
+document.getElementById('loadStudents').addEventListener('click', () => {
+    fetch('https://vvri.pythonanywhere.com/api/students')
+        .then(response => response.json())
+        .then(data => {
+            const studentsList = document.getElementById('studentsList');
+            studentsList.innerHTML = ''; // Listát töröljük, mielőtt új adatokat töltünk be
+            data.forEach(student => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${student.name} - ${student.email}`;
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Törlés';
+                deleteButton.onclick = () => deleteStudent(student.id);
+                const editButton = document.createElement('button');
+                editButton.textContent = 'Szerkesztés';
+                editButton.onclick = () => editStudent(student.id);
+                listItem.appendChild(deleteButton);
+                listItem.appendChild(editButton);
+                studentsList.appendChild(listItem);
+            });
+        })
+        .catch(error => console.error('Hiba történt: ', error));
+});
 
+// Diák törlése
+function deleteStudent(studentId) {
+    fetch(`https://vvri.pythonanywhere.com/api/students/${studentId}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Diák törölve.');
+            document.getElementById('loadStudents').click(); // Lista frissítése
+        }
+    })
+    .catch(error => console.error('Hiba történt: ', error));
+}
+
+// Diák szerkesztése (példakód, funkcióhoz több információ szükséges)
+function editStudent(studentId) {
+    // Egy egyszerű űrlap az adatok szerkesztésére (például egy modal dialog)
+    const studentName = prompt('Új diák neve:');
+    const studentEmail = prompt('Új diák email címe:');
+    fetch(`https://vvri.pythonanywhere.com/api/students/${studentId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: studentName, email: studentEmail })
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Diák adatai frissítve.');
+            document.getElementById('loadStudents').click(); // Lista frissítése
+        }
+    })
+    .catch(error => console.error('Hiba történt: ', error));
+}
+
+// Új diák hozzáadása
+document.getElementById('newStudentForm').addEventListener('submit', event => {
+    event.preventDefault();
+    const studentName = document.getElementById('studentName').value;
+    fetch('https://vvri.pythonanywhere.com/api/students', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: studentName })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Diák hozzáadva:', data);
+        document.getElementById('studentName').value = ''; // Mező törlése
+        document.getElementById('loadStudents').click(); // Lista frissítése
+    })
+    .catch(error => console.error('Hiba történt: ', error));
+});
