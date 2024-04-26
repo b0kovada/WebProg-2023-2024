@@ -1,1 +1,35 @@
-
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurzusok Kezelése</title>
+</head>
+<body>
+    <h1>Kurzusok Kezelése</h1>
+    <section>
+        <h2>Kurzusok Listája</h2>
+        <button id="loadCourses">Kurzusok Betöltése</button>
+        <ul id="coursesList"></ul>
+    </section>
+    <section>
+        <h2>Új Kurzus Hozzáadása</h2>
+        <form id="newCourseForm">
+            <input type="text" id="courseName" placeholder="Kurzus neve" required>
+            <button type="submit">Kurzus Hozzáadása</button>
+        </form>
+    </section>
+    <section>
+        <h2>Diákok Kezelése</h2>
+        <button id="loadStudents">Diákok Betöltése</button>
+        <ul id="studentsList"></ul>
+    </section>
+    <section>
+        <h2>Új Diák Hozzáadása</h2>
+        <form id="newStudentForm">
+            <input type="text" id="studentName" placeholder="Diák neve" required>
+            <button type="submit">Diák Hozzáadása</button>
+        </form>
+    </section>
+</body>
+</html>
