@@ -2,30 +2,34 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurzusok és Diákok Kezelése</title>
     <link rel="stylesheet" href="css/styles.css">
-    <title>Kurzusok projekt</title>
 </head>
 <body>
     <h1>Kurzusok</h1>
-    <section id="courses-list"></section>
-    <h2>Új kurzus</h2>
-    <form id="new-course-form">
-        <input type="text" id="course-name" placeholder="Kurzus neve" required>
-        <input type="submit" value="Létrehozás">
+    <ul id="courseList"></ul>
+    <h2>Új kurzus hozzáadása</h2>
+    <form id="newCourseForm">
+        <input type="text" id="courseName" placeholder="Kurzus neve" required>
+        <button type="submit">Kurzus hozzáadása</button>
     </form>
+
     <h1>Diákok</h1>
-    <section id="students-list"></section>
-    <h2>Add New Student</h2>
-<form id="add-student-form">
-    <input type="text" id="new-student-name" placeholder="Diák neve" required>
-    <input type="submit" value="Létrehozás">
-</form>
-    <h2>Edit Student</h2>
-    <form id="edit-student-form">
-        <input type="text" id="student-name" placeholder="Diák neve" required>
-        <input type="submit" value="Diák frissítése">
+    <ul id="studentList"></ul>
+    <h2>Új diák hozzáadása</h2>
+    <form id="newStudentForm">
+        <input type="text" id="studentName" placeholder="Diák neve" required>
+        <input type="text" id="studentCourse" placeholder="Kurzus ID" required>
+        <button type="submit">Diák hozzáadása</button>
     </form>
+
+    <h2>Diák szerkesztése</h2>
+    <form id="editStudentForm">
+        <input type="hidden" id="editStudentId">
+        <input type="text" id="editStudentName" placeholder="Diák neve" required>
+        <button type="submit">Diák módosítása</button>
+    </form>
+
     <script src="js/script.js"></script>
 </body>
 </html>
