@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurzusok projekt</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Kurzusok</h1>
+        <div class="filter">
+            <input type="number" id="input-number">
+            <div class="buttons">
+                <button onclick="searchCourse()">Tantárgy keresése</button>
+                <button onclick="searchStudent()">Diák keresése</button>
+                <input type="text" id="course-name-input">
+                <button onclick="createCourse()">Kurzus hozzáadása</button>
+
+            </div>
+        </div>
+        <div id="course-list"></div>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>
