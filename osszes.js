@@ -303,3 +303,134 @@ function check(a,b){
   
     console.log("Minimum érték:", minErtek);
     console.log("Minimum érték indexe:", minIndex);
+
+//Convert Hash To An Array
+function convertHashToArray(hash){
+  let result = []
+  for (let i in hash) {
+    result.push([i,hash[i]])
+  }
+  for (let i = 0; i < result.length; i++) {
+    for (let j = i + 1; j < result.length; j++) {
+      if (result[i] > result[j]) {
+        [result[i],result[j]] = [result[j],result[i]]
+      }
+    }
+  }
+  return result
+}
+
+//Blowing Birthday Candles
+function blowCandles(str) {
+  let candles = str.split('').map(d=>d|0);
+  let time = 0;
+  for (let i=0; i<str.length; i++) {
+    if (candles[i] > 0) {
+      time += candles[i];
+      candles[i+1] -= candles[i];
+      candles[i+2] -= candles[i];
+    }
+  }
+  return time;
+}
+
+//Find the divisors!
+function divisors(integer) {
+ const divisors = Array
+    .from({length: integer }, (_, i) => i)
+    .filter(i => i !== 1 && integer % i === 0)
+ 
+   return divisors.length === 0 ? `${integer} is prime` : divisors
+};
+
+//Binary Addition
+function addBinary(a,b) {
+  var c = a + b;
+  var res = '';
+  while (c >= 1) {
+    var res = c % 2 + res;
+    c = Math.floor(c / 2);
+  }
+  return res;
+}
+
+//Difference between two collections
+function diff(a, b){
+  var arr=[];
+  for (var i=0; i<a.length; ++i)
+    if (b.indexOf(a[i])==-1 && arr.indexOf(a[i])==-1)
+      arr.push(a[i]);
+  for (var i=0; i<b.length; ++i)
+    if (a.indexOf(b[i])==-1 && arr.indexOf(b[i])==-1)
+      arr.push(b[i]);
+  arr.sort();
+  return arr;
+}
+
+//Squeaky Window
+function sliding (nums, k) {
+  let result = []
+  
+  for (let i = 0; i <= nums.length - k; i += 1) {
+    let sample = nums.slice(i, i + k)
+    result.push(Math.max(...sample))
+  }
+
+  return result
+}
+
+//Lost number in number sequence
+function findDeletedNumber(arr, mixArr) {
+  for(let i = 0; i < arr.length; i++) {
+    if(mixArr.indexOf(arr[i]) < 0) {
+      return arr[i];
+    }
+  }
+  return 0;
+}
+
+//De-Emojify
+function deEmojify(emojiString) {
+  const signs = [':)', ':D', '>(', '>:C', ':/', ':|', ':O', ';)', '^.^', ':(' ]
+  let result = ''
+  if(emojiString) {
+    const arr = emojiString.split('  ')  
+    for(const element of arr) {    
+      const x = element.split(' ').map(el => signs.indexOf(el)).join('')
+      result += String.fromCharCode(parseInt(x))
+    }
+  }
+  return result
+}
+
+//Complementary DNA
+function DNAStrand(dna){
+  let newDNA = "";
+  let dnaKeys = {
+    "A": "T",
+    "T": "A",
+    "C": "G",
+    "G": "C"
+  };
+  
+  for (let i = 0; i < dna.length; i++) {
+    let char = dna[i];
+    
+    newDNA += dnaKeys[char];
+  }
+  
+  return newDNA;
+}
+
+//Middle Me
+function middleMe(N, X, Y){
+  
+const repeat = Y.repeat(N);
+  
+  const middlePosition = repeat.length / 2;
+  
+  if (parseInt(middlePosition) === middlePosition) {
+    return repeat.slice(0,middlePosition) + X + repeat.slice(middlePosition);
+    }
+  return X;
+  }
